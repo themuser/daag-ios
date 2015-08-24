@@ -5,7 +5,12 @@
 
 누구든지 자유롭게 프로그램을 작성해서 merge request 해주세요.
 
+아이디어 제안은 [여기](https://github.com/themuser/daag-ios/issues) 또는 아래 메일로 연락주세요.
+
+mkyo.jung@samsung.com
 
 # Todo
 - [ ] 다국어 지원(언어제안 및 번역지원 환영)
 - [ ] Travis-ci integration
+- [ ] 흔들어서 랜덤 음식 추천
+- [ ] 사진 크게 보이기
