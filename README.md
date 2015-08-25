@@ -10,7 +10,7 @@
 mkyo.jung@samsung.com
 
 # Todo
-- [ ] 다국어 지원(언어제안 및 번역지원 환영)
+- [ ] 다국어 지원
 - [ ] Travis-ci integration
 - [ ] 흔들어서 랜덤 음식 추천
 - [ ] 사진 크게 보이기
