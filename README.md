@@ -14,3 +14,4 @@ mkyo.jung@samsung.com
 - [ ] Travis-ci integration
 - [ ] 흔들어서 랜덤 음식 추천
 - [ ] 사진 크게 보이기
+- [ ] 고칼로리/저칼로리 표시
