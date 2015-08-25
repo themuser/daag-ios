@@ -51,17 +51,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                     } else if let data = jsonBody?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                         let json = JSON(data: data)
                         
-                        self.menuTableView.backgroundView = nil
-                        self.menuTableView.separatorStyle = .SingleLine
-                        
-                        // list presentation
-                        for each in json {
-                            let menu = Menu(data: each.1)
+                        if json.count == 0 {
+                            self.menuTableView.backgroundView = self.emptyView
+                            self.menuTableView.separatorStyle = .None
+                        } else {
+                            self.menuTableView.backgroundView = nil
+                            self.menuTableView.separatorStyle = .SingleLine
                             
-                            if self.menuDictionary[menu.floor!] == nil {
-                                self.menuDictionary[menu.floor!] = [Menu]()
+                            // list presentation
+                            for each in json {
+                                let menu = Menu(data: each.1)
+                                
+                                if self.menuDictionary[menu.floor!] == nil {
+                                    self.menuDictionary[menu.floor!] = [Menu]()
+                                }
+                                self.menuDictionary[menu.floor!] = self.menuDictionary[menu.floor!]! + [menu]
                             }
-                            self.menuDictionary[menu.floor!] = self.menuDictionary[menu.floor!]! + [menu]
+                            
                         }
                     }
                     

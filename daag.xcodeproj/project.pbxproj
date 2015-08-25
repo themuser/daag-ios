@@ -48,6 +48,9 @@
 		DB6175901B88BEEF005EC720 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DB6175921B88BEEF005EC720 /* daag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = daag.entitlements; sourceTree = "<group>"; };
 		DB6175951B88BFF2005EC720 /* EmptyMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyMenu.xib; sourceTree = "<group>"; };
+		DB6175971B8A0416005EC720 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods-daag/Alamofire.framework"; sourceTree = "<group>"; };
+		DB6175981B8A0416005EC720 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/Pods-daag/SDWebImage.framework"; sourceTree = "<group>"; };
+		DB6175991B8A0416005EC720 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/Pods-daag/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		DB7D52C41B88BD5F001816C2 /* daag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = daag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB7D52CE1B88BD5F001816C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +166,9 @@
 		DDBDC1E29722E2A3F48C6378 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB6175971B8A0416005EC720 /* Alamofire.framework */,
+				DB6175981B8A0416005EC720 /* SDWebImage.framework */,
+				DB6175991B8A0416005EC720 /* SwiftyJSON.framework */,
 				DB6175901B88BEEF005EC720 /* HealthKit.framework */,
 				50E9E5F57ABBED85871F193C /* Pods_daag.framework */,
 			);
@@ -486,6 +492,10 @@
 				CODE_SIGN_ENTITLEMENTS = daag/daag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-daag",
+				);
 				INFOPLIST_FILE = daag/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -505,6 +515,10 @@
 				CODE_SIGN_ENTITLEMENTS = daag/daag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-daag",
+				);
 				INFOPLIST_FILE = daag/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -521,6 +535,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = daagTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,6 +548,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = daagTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,6 +560,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = daagUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,6 +573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = daagUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
