@@ -10,8 +10,10 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import HealthKit
+import JLToast
+import Timepiece
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
     
     var menuList = [Menu]()
     var menuDictionary = [String: [Menu]]()
@@ -19,6 +21,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var menuTableView: UITableView!
     var menus: JSON?
 
+    var selectedMenu: Menu?
+    
     var emptyView: UIView?
     
     override func viewDidLoad() {
@@ -37,11 +41,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             .responseString(encoding: NSUTF8StringEncoding,
                 completionHandler: { request, response, body, error in
                     
-                    #if DEBUG
+//                    #if DEBUG
                         let jsonBody = self.json
-                        #elseif RELEASE
-                        let jsonBody = body
-                    #endif
+//                        #elseif RELEASE
+//                        let jsonBody = body
+//                    #endif
                     
                     if jsonBody == nil {
                         self.menuTableView.backgroundView = self.emptyView
@@ -134,16 +138,24 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let key = Array(menuDictionary.keys)[indexPath.section]
         if let menus = menuDictionary[key] {
             let menu = menus[indexPath.row]
-
+            self.selectedMenu = menu
             let eatAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "EAT", handler: {action, indexPath in
-                self.addCaloryInformationToHealthKit(menu)
-                self.menuTableView.reloadData()
+                let alert = UIAlertView(title: "이 음식을 드시겠습니까?", message: "", delegate: self, cancelButtonTitle: "취소", otherButtonTitles: "확인")
+                alert.show()
             })
             eatAction.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
             return [eatAction]
         }
         
         return nil
+    }
+    
+
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            self.addCaloryInformationToHealthKit(selectedMenu!)
+            self.menuTableView.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -159,7 +171,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let healthKitStore = HKHealthStore()
             healthKitStore.saveObject(food, withCompletion: {(success:Bool, error:NSError!) -> Void in
                 if success {
-                    println("success")
+                    JLToast.makeText("성공적으로 저장되었습니다.", duration: JLToastDelay.ShortDelay).show()
                 } else {
                     println(error)
                 }

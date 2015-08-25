@@ -1,18 +1,24 @@
 PODS:
   - Alamofire (1.3.1)
+  - JLToast (1.2.5)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SwiftyJSON (2.2.1)
+  - Timepiece (0.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.3)
+  - JLToast
   - SDWebImage (~> 3.7)
   - SwiftyJSON (~> 2.2.1)
+  - Timepiece
 
 SPEC CHECKSUMS:
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  JLToast: ad061dadb49580b86b47535b869390aab0c6a03b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
+  Timepiece: d38302bf6fce6146e9d8feb289e0837811ee1342
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.38.2
