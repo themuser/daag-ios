@@ -78,7 +78,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                     dispatch_async(dispatch_get_main_queue()){
                         self.menuTableView.reloadData()
                     }
-
                 }
         )
         
@@ -119,15 +118,26 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as? MenuTableViewCell
-        
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
-        }
-        
+        var cell: MenuTableViewCell?
         let key = Array(menuDictionary.keys)[indexPath.section]
+        
         if let menus = menuDictionary[key] {
             let menu = menus[indexPath.row]
+            
+            if !menu.soldout! {
+                cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as? MenuTableViewCell
+                if cell == nil {
+                    cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
+                }
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("SoldoutCell") as? MenuTableViewCell
+                if cell == nil {
+                    cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SoldoutCell") as? MenuTableViewCell
+                }
+                let attributeString = NSMutableAttributedString(string: menu.title!)
+                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+                cell?.title.attributedText = attributeString
+            }
             cell?.menu = menu
         }
         
@@ -140,7 +150,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let menu = menus[indexPath.row]
             self.selectedMenu = menu
             let eatAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "EAT", handler: {action, indexPath in
-                let alert = UIAlertView(title: "이 음식을 드시겠습니까?", message: "", delegate: self, cancelButtonTitle: "취소", otherButtonTitles: "확인")
+                let alert = UIAlertView(title: "이 음식을 드시겠습니까? 건강앱에 이력이 저장됩니다.", message: "", delegate: self, cancelButtonTitle: "취소", otherButtonTitles: "확인")
                 alert.show()
             })
             eatAction.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)

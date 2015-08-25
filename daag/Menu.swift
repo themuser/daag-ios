@@ -17,6 +17,7 @@ class Menu: Printable {
     var calory: Int?
     var price: Int?
     var actualPrice: Int?
+    var soldout: Bool?
  
     
     init(data: JSON){
@@ -27,7 +28,7 @@ class Menu: Printable {
         calory = data["kcal"].int
         price = data["price"].int
         actualPrice = data["payments"].int
-        
+        soldout = data["soldout"].bool
     }
     
     

@@ -13,10 +13,9 @@ import Alamofire
 class MenuTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var corner: UILabel!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var corner: UILabel!
     @IBOutlet weak var calory: UILabel!
-//    @IBOutlet weak var price: UILabel!
     @IBOutlet weak var actualPrice: UILabel!
     
     let formatter = NSNumberFormatter()
@@ -47,15 +46,7 @@ class MenuTableViewCell: UITableViewCell {
             } else {
                 self.calory.text = "0"
             }
-//            if let price = newValue.price {
-//
-//                let attributeString = NSMutableAttributedString(string: formatter.stringFromNumber(price)!)
-//                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
-//                self.price.attributedText = attributeString
-//                
-//            } else {
-//                self.price.text = "0"
-//            }
+
             if let actualPrice = newValue.actualPrice {
                 self.actualPrice.text = formatter.stringFromNumber(actualPrice)!
                 
@@ -76,7 +67,4 @@ class MenuTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
-
 }
