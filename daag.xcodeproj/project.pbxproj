@@ -16,7 +16,7 @@
 		DB6175911B88BEEF005EC720 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6175901B88BEEF005EC720 /* HealthKit.framework */; };
 		DB6175961B88BFF2005EC720 /* EmptyMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB6175951B88BFF2005EC720 /* EmptyMenu.xib */; };
 		DB7D52C81B88BD5F001816C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */; };
-		DB7D52CF1B88BD5F001816C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7D52CE1B88BD5F001816C2 /* Assets.xcassets */; };
+		DB7D52CF1B88BD5F001816C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7D52CE1B88BD5F001816C2 /* Images.xcassets */; };
 		DB7D52DD1B88BD5F001816C2 /* daagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D52DC1B88BD5F001816C2 /* daagTests.swift */; };
 		DB7D52E81B88BD5F001816C2 /* daagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D52E71B88BD5F001816C2 /* daagUITests.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +55,7 @@
 		DB6175991B8A0416005EC720 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/Pods-daag/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		DB7D52C41B88BD5F001816C2 /* daag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = daag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB7D52CE1B88BD5F001816C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB7D52CE1B88BD5F001816C2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DB7D52D31B88BD5F001816C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB7D52D81B88BD5F001816C2 /* daagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = daagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7D52DC1B88BD5F001816C2 /* daagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daagTests.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				DB6175921B88BEEF005EC720 /* daag.entitlements */,
 				DB6175851B88BDAC005EC720 /* menu */,
 				DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */,
-				DB7D52CE1B88BD5F001816C2 /* Assets.xcassets */,
+				DB7D52CE1B88BD5F001816C2 /* Images.xcassets */,
 				DB7D52D31B88BD5F001816C2 /* Info.plist */,
 			);
 			path = daag;
@@ -306,7 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7D52CF1B88BD5F001816C2 /* Assets.xcassets in Resources */,
+				DB7D52CF1B88BD5F001816C2 /* Images.xcassets in Resources */,
 				DB6175961B88BFF2005EC720 /* EmptyMenu.xib in Resources */,
 				DB6175871B88BDEF005EC720 /* Menu.storyboard in Resources */,
 			);
