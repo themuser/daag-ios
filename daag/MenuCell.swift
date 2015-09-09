@@ -29,30 +29,40 @@ class MenuTableViewCell: UITableViewCell {
             return _menu!
         }
         set {
+            let menu = newValue
             formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
             
             // photo
-            if let imageSource = newValue.imageSource {
+            if let imageSource = menu.imageSource {
                 let url = NSURL(string: MenuTableViewCell.baseUrl + imageSource)
                 dispatch_async(dispatch_get_main_queue()){
                     self.photo.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NoImage"))
                 }
             }
             // lables
-            self.corner.text = newValue.corner
-            self.title.text = newValue.title
-            if let calory = newValue.calory {
+            self.corner.text = menu.corner
+            self.title.text = menu.title
+            if let calory = menu.calory {
                 self.calory.text = String(calory) + "kcal"
             } else {
                 self.calory.text = "0"
             }
 
-            if let actualPrice = newValue.actualPrice {
+            if let actualPrice = menu.actualPrice {
                 self.actualPrice.text = formatter.stringFromNumber(actualPrice)!
                 
             } else {
-                self.actualPrice.text = "?"
+                self.actualPrice.text = "0"
             }
+            
+            if menu.soldout! {
+                let attributeString = NSMutableAttributedString(string: menu.title!)
+                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+                self.title.attributedText = attributeString
+                
+                self.corner.text = "판매가 종료되었습니다."
+            }
+
         }
     }
         

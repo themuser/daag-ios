@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C08F6BDE69450EA7F155EA2 /* Pods_daag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E9E5F57ABBED85871F193C /* Pods_daag.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DB2497C51BA087710090DBE7 /* CharacterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2497C41BA087710090DBE7 /* CharacterUtil.swift */; };
 		DB6175871B88BDEF005EC720 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6175861B88BDEF005EC720 /* Menu.storyboard */; };
 		DB61758B1B88BE4D005EC720 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6175881B88BE4D005EC720 /* Menu.swift */; };
 		DB61758D1B88BE4D005EC720 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61758A1B88BE4D005EC720 /* MenuViewController.swift */; };
@@ -41,6 +42,7 @@
 		15158424B4A820DF9634FB89 /* Pods-daag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daag.release.xcconfig"; path = "Pods/Target Support Files/Pods-daag/Pods-daag.release.xcconfig"; sourceTree = "<group>"; };
 		50E9E5F57ABBED85871F193C /* Pods_daag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_daag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E79DFCE22F40353F1D85002 /* Pods-daag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-daag/Pods-daag.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2497C41BA087710090DBE7 /* CharacterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterUtil.swift; sourceTree = "<group>"; };
 		DB6175861B88BDEF005EC720 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		DB6175881B88BE4D005EC720 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		DB61758A1B88BE4D005EC720 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB2497C21BA087490090DBE7 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				DB2497C31BA0875C0090DBE7 /* utility */,
+			);
+			name = component;
+			sourceTree = "<group>";
+		};
+		DB2497C31BA0875C0090DBE7 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				DB2497C41BA087710090DBE7 /* CharacterUtil.swift */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
 		DB6175851B88BDAC005EC720 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +154,7 @@
 		DB7D52C61B88BD5F001816C2 /* daag */ = {
 			isa = PBXGroup;
 			children = (
+				DB2497C21BA087490090DBE7 /* component */,
 				DB6175921B88BEEF005EC720 /* daag.entitlements */,
 				DB6175851B88BDAC005EC720 /* menu */,
 				DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */,
@@ -362,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2497C51BA087710090DBE7 /* CharacterUtil.swift in Sources */,
 				DB61758B1B88BE4D005EC720 /* Menu.swift in Sources */,
 				DB61758F1B88BE73005EC720 /* MenuCell.swift in Sources */,
 				DB61758D1B88BE4D005EC720 /* MenuViewController.swift in Sources */,

@@ -13,7 +13,7 @@ import HealthKit
 import JLToast
 import Timepiece
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var menuList = [Menu]()
     var menuDictionary = [String: [Menu]]()
@@ -32,6 +32,26 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         menuTableView.reloadData()
         retrieveTodayMenu()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("shakeDetected"), name: "shake", object: nil)
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.becomeFirstResponder()
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == .MotionShake {
+            NSNotificationCenter.defaultCenter().postNotificationName("shake", object: self)
+        }
+    }
+    
+    func shakeDetected(){
+        // TODO: 음식 랜덤픽
     }
     
     func retrieveTodayMenu(){
@@ -42,9 +62,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 completionHandler: { request, response, body, error in
                     
 //                    #if DEBUG
-                        let jsonBody = self.json
+//                        let jsonBody = self.json
 //                        #elseif RELEASE
-//                        let jsonBody = body
+                        let jsonBody = body
 //                    #endif
                     
                     if jsonBody == nil {
@@ -90,6 +110,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let customHeader = tableView.dequeueReusableCellWithIdentifier("Header") as? UITableViewCell
+        customHeader?.layoutMargins = UIEdgeInsetsZero
         
         let key = Array(menuDictionary.keys)[section]
         let sectionTitleLabel = customHeader?.viewWithTag(10) as! UILabel
@@ -97,10 +118,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return customHeader
     }
-  
+
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let key = Array(menuDictionary.keys)[section]
         return key.uppercaseString
@@ -122,21 +144,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let key = Array(menuDictionary.keys)[indexPath.section]
         
         if let menus = menuDictionary[key] {
+
             let menu = menus[indexPath.row]
-            
-            if !menu.soldout! {
-                cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as? MenuTableViewCell
-                if cell == nil {
-                    cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
-                }
-            } else {
-                cell = tableView.dequeueReusableCellWithIdentifier("SoldoutCell") as? MenuTableViewCell
-                if cell == nil {
-                    cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SoldoutCell") as? MenuTableViewCell
-                }
-                let attributeString = NSMutableAttributedString(string: menu.title!)
-                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
-                cell?.title.attributedText = attributeString
+            cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as? MenuTableViewCell
+            if cell == nil {
+                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
             }
             cell?.menu = menu
         }
@@ -150,8 +162,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let menu = menus[indexPath.row]
             self.selectedMenu = menu
             let eatAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "EAT", handler: {action, indexPath in
-                let alert = UIAlertView(title: "이 음식을 드시겠습니까? 건강앱에 이력이 저장됩니다.", message: "", delegate: self, cancelButtonTitle: "취소", otherButtonTitles: "확인")
-                alert.show()
+                let alertControl = UIAlertController(title: "이 음식을 드시기로 결정하셨나요? 건강앱에 이력이 저장됩니다.", message: nil, preferredStyle: .Alert)
+                let okAction = UIAlertAction(title: "예", style: .Default, handler: { action in
+                    self.addCaloryInformationToHealthKit(self.selectedMenu!)
+                    self.menuTableView.reloadData()
+                })
+                let cancelAction = UIAlertAction(title: "아니오", style: .Cancel, handler: { action in
+                    tableView.setEditing(false, animated: true)
+                })
+                alertControl.addAction(cancelAction)
+                alertControl.addAction(okAction)
+                self.presentViewController(alertControl, animated: true, completion: nil)
             })
             eatAction.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
             return [eatAction]
@@ -159,14 +180,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return nil
     }
-    
 
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
-            self.addCaloryInformationToHealthKit(selectedMenu!)
-            self.menuTableView.reloadData()
-        }
-    }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         // does nothing but still needs to be here
