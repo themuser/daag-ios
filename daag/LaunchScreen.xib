@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,11 +14,31 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-kN-NmN">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKG-KR-dGc">
+                    <rect key="frame" x="434" y="571" width="158" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="cZZ-mK-f8T"/>
+                        <constraint firstAttribute="width" constant="158" id="tCY-Xj-vTP"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="powered by daag.kr.pe">
+                            <attributes>
+                                <color key="NSColor" red="0.47604955808080796" green="0.47604955808080796" blue="0.47604955808080796" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="12" name="SFUIDisplay-Thin"/>
+                                <font key="NSOriginalFont" size="13" name="SFUIDisplay-Thin"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="lKG-KR-dGc" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="2aa-70-TOn"/>
                 <constraint firstAttribute="bottom" secondItem="P2R-kN-NmN" secondAttribute="bottom" id="GtN-Dv-G5P"/>
                 <constraint firstAttribute="trailing" secondItem="P2R-kN-NmN" secondAttribute="trailing" id="QVV-jy-cGe"/>
+                <constraint firstItem="lKG-KR-dGc" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="ZKA-7d-Fju"/>
                 <constraint firstItem="P2R-kN-NmN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cMz-J5-KHw"/>
                 <constraint firstItem="P2R-kN-NmN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dHQ-vf-nNf"/>
             </constraints>
