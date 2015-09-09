@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C08F6BDE69450EA7F155EA2 /* Pods_daag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E9E5F57ABBED85871F193C /* Pods_daag.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB2497C51BA087710090DBE7 /* CharacterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2497C41BA087710090DBE7 /* CharacterUtil.swift */; };
+		DB4E268A1BA099C700DF95CB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB4E26891BA099C700DF95CB /* LaunchScreen.xib */; };
 		DB6175871B88BDEF005EC720 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6175861B88BDEF005EC720 /* Menu.storyboard */; };
 		DB61758B1B88BE4D005EC720 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6175881B88BE4D005EC720 /* Menu.swift */; };
 		DB61758D1B88BE4D005EC720 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61758A1B88BE4D005EC720 /* MenuViewController.swift */; };
@@ -43,6 +44,7 @@
 		50E9E5F57ABBED85871F193C /* Pods_daag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_daag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E79DFCE22F40353F1D85002 /* Pods-daag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-daag/Pods-daag.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2497C41BA087710090DBE7 /* CharacterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterUtil.swift; sourceTree = "<group>"; };
+		DB4E26891BA099C700DF95CB /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		DB6175861B88BDEF005EC720 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		DB6175881B88BE4D005EC720 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		DB61758A1B88BE4D005EC720 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				DB7D52C71B88BD5F001816C2 /* AppDelegate.swift */,
 				DB7D52CE1B88BD5F001816C2 /* Images.xcassets */,
 				DB7D52D31B88BD5F001816C2 /* Info.plist */,
+				DB4E26891BA099C700DF95CB /* LaunchScreen.xib */,
 			);
 			path = daag;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4E268A1BA099C700DF95CB /* LaunchScreen.xib in Resources */,
 				DB7D52CF1B88BD5F001816C2 /* Images.xcassets in Resources */,
 				DB6175961B88BFF2005EC720 /* EmptyMenu.xib in Resources */,
 				DB6175871B88BDEF005EC720 /* Menu.storyboard in Resources */,
