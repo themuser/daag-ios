@@ -12,7 +12,7 @@ import SwiftyJSON
 class Menu: CustomStringConvertible {
     var floor: String?
     var imageSource: String?
-    var corner: String?
+    var corner: String? 
     var title: String?
     var calory: Int?
     var price: Int?
