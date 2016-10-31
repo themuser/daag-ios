@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import Alamofire
 
 class MenuTableViewCell: UITableViewCell {
 
@@ -18,25 +17,25 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var calory: UILabel!
     @IBOutlet weak var actualPrice: UILabel!
     
-    let formatter = NSNumberFormatter()
+    let formatter = NumberFormatter()
     
     static let baseUrl = "http://daag.kr.pe"
 
     
-    private var _menu: Menu?
+    fileprivate var _menu: Menu?
     var menu: Menu {
         get {
             return _menu!
         }
         set {
             let menu = newValue
-            formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            formatter.numberStyle = NumberFormatter.Style.decimal
             
             // photo
             if let imageSource = menu.imageSource {
-                let url = NSURL(string: MenuTableViewCell.baseUrl + imageSource)
-                dispatch_async(dispatch_get_main_queue()){
-                    self.photo.sd_setImageWithURL(url, placeholderImage: UIImage(named: "NoImage"))
+                let url = URL(string: MenuTableViewCell.baseUrl + imageSource)
+                DispatchQueue.main.async{
+                    self.photo.sd_setImage(with: url, placeholderImage: UIImage(named: "NoImage"))
                 }
             }
             // lables
@@ -49,7 +48,8 @@ class MenuTableViewCell: UITableViewCell {
             }
 
             if let actualPrice = menu.actualPrice {
-                self.actualPrice.text = formatter.stringFromNumber(actualPrice)!
+                
+                self.actualPrice.text = formatter.string(from: NSNumber(value:actualPrice))!
                 
             } else {
                 self.actualPrice.text = "0"
@@ -72,7 +72,7 @@ class MenuTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

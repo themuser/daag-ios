@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class Menu: Printable {
+class Menu: CustomStringConvertible {
     var floor: String?
     var imageSource: String?
     var corner: String?

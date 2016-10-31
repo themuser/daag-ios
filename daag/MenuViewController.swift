@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import HealthKit
-import JLToast
+import Toaster
 import Timepiece
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -28,25 +28,25 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emptyView = NSBundle.mainBundle().loadNibNamed("EmptyMenu", owner: self, options: nil)[0] as? UIView
+        emptyView = Bundle.main.loadNibNamed("EmptyMenu", owner: self, options: nil)?[0] as? UIView
         
         menuTableView.reloadData()
         retrieveTodayMenu()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("shakeDetected"), name: "shake", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.shakeDetected), name: NSNotification.Name(rawValue: "shake"), object: nil)
     }
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.becomeFirstResponder()
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if motion == .MotionShake {
-            NSNotificationCenter.defaultCenter().postNotificationName("shake", object: self)
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "shake"), object: self)
         }
     }
     
@@ -56,31 +56,30 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func retrieveTodayMenu(){
         let headers = ["Accept": "application/json"]
-        
-        Alamofire.request(.GET, "http://daag.kr.pe/", headers: headers)
-            .responseString(encoding: NSUTF8StringEncoding,
-                completionHandler: { request, response, body, error in
+        Alamofire.request("http://daag.kr.pe/", headers: headers)
+            .responseString(encoding: String.Encoding.utf8,
+                completionHandler: { response in
                     
 //                    #if DEBUG
 //                        let jsonBody = self.json
 //                        #elseif RELEASE
-                        let jsonBody = body
+                        let jsonBody = response.result.value
 //                    #endif
                     
                     if jsonBody == nil {
                         self.menuTableView.backgroundView = self.emptyView
-                        self.menuTableView.separatorStyle = .None
+                        self.menuTableView.separatorStyle = .none
                         
                       
-                    } else if let data = jsonBody?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    } else if let data = jsonBody?.data(using: String.Encoding.utf8, allowLossyConversion: false) {
                         let json = JSON(data: data)
                         
                         if json.count == 0 {
                             self.menuTableView.backgroundView = self.emptyView
-                            self.menuTableView.separatorStyle = .None
+                            self.menuTableView.separatorStyle = .none
                         } else {
                             self.menuTableView.backgroundView = nil
-                            self.menuTableView.separatorStyle = .SingleLine
+                            self.menuTableView.separatorStyle = .singleLine
                             
                             // list presentation
                             for each in json {
@@ -95,7 +94,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
                     
-                    dispatch_async(dispatch_get_main_queue()){
+                    DispatchQueue.main.async {
                         self.menuTableView.reloadData()
                     }
                 }
@@ -104,51 +103,51 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     // MARK: - TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.menuDictionary.count
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let customHeader = tableView.dequeueReusableCellWithIdentifier("Header") as? UITableViewCell
-        customHeader?.layoutMargins = UIEdgeInsetsZero
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let customHeader = tableView.dequeueReusableCell(withIdentifier: "Header")
+        customHeader?.layoutMargins = UIEdgeInsets.zero
         
         let key = Array(menuDictionary.keys)[section]
         let sectionTitleLabel = customHeader?.viewWithTag(10) as! UILabel
-        sectionTitleLabel.text = key.uppercaseString
+        sectionTitleLabel.text = key.uppercased()
         
         return customHeader
     }
 
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
 
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let key = Array(menuDictionary.keys)[section]
-        return key.uppercaseString
+        return key.uppercased()
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let key = Array(menuDictionary.keys)[section]
         let numberOfRows = menuDictionary[key]?.count
         
         return numberOfRows!
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: MenuTableViewCell?
-        let key = Array(menuDictionary.keys)[indexPath.section]
+        let key = Array(menuDictionary.keys)[(indexPath as NSIndexPath).section]
         
         if let menus = menuDictionary[key] {
 
-            let menu = menus[indexPath.row]
-            cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as? MenuTableViewCell
+            let menu = menus[(indexPath as NSIndexPath).row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuTableViewCell
             if cell == nil {
-                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
+                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MenuCell") as? MenuTableViewCell
             }
             cell?.menu = menu
         }
@@ -156,23 +155,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        let key = Array(menuDictionary.keys)[indexPath.section]
+    func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
+        let key = Array(menuDictionary.keys)[(indexPath as NSIndexPath).section]
         if let menus = menuDictionary[key] {
-            let menu = menus[indexPath.row]
+            let menu = menus[(indexPath as NSIndexPath).row]
             self.selectedMenu = menu
-            let eatAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "EAT", handler: {action, indexPath in
-                let alertControl = UIAlertController(title: "이 음식을 드시기로 결정하셨나요? 건강앱에 이력이 저장됩니다.", message: nil, preferredStyle: .Alert)
-                let okAction = UIAlertAction(title: "예", style: .Default, handler: { action in
+            let eatAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "EAT", handler: {action, indexPath in
+                let alertControl = UIAlertController(title: "이 음식을 드시기로 결정하셨나요? 건강앱에 이력이 저장됩니다.", message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "예", style: .default, handler: { action in
                     self.addCaloryInformationToHealthKit(self.selectedMenu!)
                     self.menuTableView.reloadData()
                 })
-                let cancelAction = UIAlertAction(title: "아니오", style: .Cancel, handler: { action in
+                let cancelAction = UIAlertAction(title: "아니오", style: .cancel, handler: { action in
                     tableView.setEditing(false, animated: true)
                 })
                 alertControl.addAction(cancelAction)
                 alertControl.addAction(okAction)
-                self.presentViewController(alertControl, animated: true, completion: nil)
+                self.present(alertControl, animated: true, completion: nil)
             })
             eatAction.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
             return [eatAction]
@@ -182,25 +181,28 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // does nothing but still needs to be here
     }
     
     // MARK: - HealthKit
-    func addCaloryInformationToHealthKit(menu: Menu){
+    func addCaloryInformationToHealthKit(_ menu: Menu){
         if let calory = menu.calory {
-            let calories = HKQuantitySample(type: HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDietaryEnergyConsumed), quantity: HKQuantity(unit: HKUnit.calorieUnit(), doubleValue: Double(calory) * 1000.0), startDate: NSDate(), endDate: NSDate())
-            let food = HKCorrelation(type: HKCorrelationType.correlationTypeForIdentifier(HKCorrelationTypeIdentifierFood), startDate: NSDate(), endDate: NSDate(), objects: NSSet(array: [calories]) as! Set<NSObject>)
+            let calories = HKQuantitySample(type: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!, quantity: HKQuantity(unit: HKUnit.calorie(), doubleValue: Double(calory) * 1000.0), start: Date(), end: Date())
+            let food = HKCorrelation(type: HKCorrelationType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.food)!, start: Date(), end: Date(), objects: NSSet(array: [calories]) as Set<NSObject> as! Set<HKSample>)
             
             let healthKitStore = HKHealthStore()
-            healthKitStore.saveObject(food, withCompletion: {(success:Bool, error:NSError!) -> Void in
+            healthKitStore.save(food, withCompletion: {(success:Bool, error:NSError!) -> Void in
                 if success {
-                    JLToast.makeText("성공적으로 저장되었습니다.", duration: JLToastDelay.ShortDelay).show()
+                    let toast = Toast.init(text: "성공적으로 저장되었습니다.", delay: Delay.short, duration: Delay.long)
+                    toast.show()
+                    
                 } else {
-                    println(error)
+                    print(error)
                 }
-            })
+            } as! (Bool, Error?) -> Void)
         }
+        
     }
     
     // for test in none-service time

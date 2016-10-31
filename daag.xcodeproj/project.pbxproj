@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37DCE0A1CA9978496F9FA4A6 /* Pods_daagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8B0572BE35C91212EBC9C5 /* Pods_daagTests.framework */; };
+		78906FDA7929153849604D81 /* Pods_daagUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF6570579597F3AA6EBA1AF /* Pods_daagUITests.framework */; };
 		8C08F6BDE69450EA7F155EA2 /* Pods_daag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E9E5F57ABBED85871F193C /* Pods_daag.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB2497C51BA087710090DBE7 /* CharacterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2497C41BA087710090DBE7 /* CharacterUtil.swift */; };
 		DB4E268A1BA099C700DF95CB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB4E26891BA099C700DF95CB /* LaunchScreen.xib */; };
@@ -41,7 +43,12 @@
 
 /* Begin PBXFileReference section */
 		15158424B4A820DF9634FB89 /* Pods-daag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daag.release.xcconfig"; path = "Pods/Target Support Files/Pods-daag/Pods-daag.release.xcconfig"; sourceTree = "<group>"; };
+		2EF6570579597F3AA6EBA1AF /* Pods_daagUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_daagUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3377DB9760523614C63B3846 /* Pods-daagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-daagTests/Pods-daagTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3553128002A9C375367A7012 /* Pods-daagUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daagUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-daagUITests/Pods-daagUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50E9E5F57ABBED85871F193C /* Pods_daag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_daag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64DAE99F2E43E1F5ECBDCAF6 /* Pods-daagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-daagTests/Pods-daagTests.release.xcconfig"; sourceTree = "<group>"; };
+		705A3A0757B7644AD6F5D05A /* Pods-daagUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daagUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-daagUITests/Pods-daagUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E79DFCE22F40353F1D85002 /* Pods-daag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-daag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-daag/Pods-daag.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2497C41BA087710090DBE7 /* CharacterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterUtil.swift; sourceTree = "<group>"; };
 		DB4E26891BA099C700DF95CB /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 		DB7D52E31B88BD5F001816C2 /* daagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = daagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7D52E71B88BD5F001816C2 /* daagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daagUITests.swift; sourceTree = "<group>"; };
 		DB7D52E91B88BD5F001816C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE8B0572BE35C91212EBC9C5 /* Pods_daagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_daagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37DCE0A1CA9978496F9FA4A6 /* Pods_daagTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78906FDA7929153849604D81 /* Pods_daagUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +109,10 @@
 			children = (
 				8E79DFCE22F40353F1D85002 /* Pods-daag.debug.xcconfig */,
 				15158424B4A820DF9634FB89 /* Pods-daag.release.xcconfig */,
+				3377DB9760523614C63B3846 /* Pods-daagTests.debug.xcconfig */,
+				64DAE99F2E43E1F5ECBDCAF6 /* Pods-daagTests.release.xcconfig */,
+				705A3A0757B7644AD6F5D05A /* Pods-daagUITests.debug.xcconfig */,
+				3553128002A9C375367A7012 /* Pods-daagUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -193,6 +207,8 @@
 				DB6175991B8A0416005EC720 /* SwiftyJSON.framework */,
 				DB6175901B88BEEF005EC720 /* HealthKit.framework */,
 				50E9E5F57ABBED85871F193C /* Pods_daag.framework */,
+				DE8B0572BE35C91212EBC9C5 /* Pods_daagTests.framework */,
+				2EF6570579597F3AA6EBA1AF /* Pods_daagUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,12 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7D52EC1B88BD5F001816C2 /* Build configuration list for PBXNativeTarget "daag" */;
 			buildPhases = (
-				3316FEF76A2981A4A6E63DB6 /* Check Pods Manifest.lock */,
+				3316FEF76A2981A4A6E63DB6 /* [CP] Check Pods Manifest.lock */,
 				DB7D52C01B88BD5F001816C2 /* Sources */,
 				DB7D52C11B88BD5F001816C2 /* Frameworks */,
 				DB7D52C21B88BD5F001816C2 /* Resources */,
-				910F2F2F061B844B113537C4 /* Embed Pods Frameworks */,
-				F14184E960948CBDD8934126 /* Copy Pods Resources */,
+				910F2F2F061B844B113537C4 /* [CP] Embed Pods Frameworks */,
+				F14184E960948CBDD8934126 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7D52EF1B88BD5F001816C2 /* Build configuration list for PBXNativeTarget "daagTests" */;
 			buildPhases = (
+				52C08618A510FB1BC5EE68A0 /* [CP] Check Pods Manifest.lock */,
 				DB7D52D41B88BD5F001816C2 /* Sources */,
 				DB7D52D51B88BD5F001816C2 /* Frameworks */,
 				DB7D52D61B88BD5F001816C2 /* Resources */,
+				A0923FF71038C41521345381 /* [CP] Embed Pods Frameworks */,
+				B14FA06CD8047CC43546E863 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7D52F21B88BD5F001816C2 /* Build configuration list for PBXNativeTarget "daagUITests" */;
 			buildPhases = (
+				86E7AB602DB87F2B1C3DC455 /* [CP] Check Pods Manifest.lock */,
 				DB7D52DF1B88BD5F001816C2 /* Sources */,
 				DB7D52E01B88BD5F001816C2 /* Frameworks */,
 				DB7D52E11B88BD5F001816C2 /* Resources */,
+				4F3659D5A09C21AB1729238F /* [CP] Embed Pods Frameworks */,
+				0EC1DAE026F4529E90CD5460 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,6 +290,7 @@
 					DB7D52C31B88BD5F001816C2 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = W49Z589W8G;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -276,10 +299,12 @@
 					};
 					DB7D52D71B88BD5F001816C2 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = DB7D52C31B88BD5F001816C2;
 					};
 					DB7D52E21B88BD5F001816C2 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = DB7D52C31B88BD5F001816C2;
 					};
 				};
@@ -333,29 +358,89 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3316FEF76A2981A4A6E63DB6 /* Check Pods Manifest.lock */ = {
+		0EC1DAE026F4529E90CD5460 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-daagUITests/Pods-daagUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		910F2F2F061B844B113537C4 /* Embed Pods Frameworks */ = {
+		3316FEF76A2981A4A6E63DB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4F3659D5A09C21AB1729238F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-daagUITests/Pods-daagUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52C08618A510FB1BC5EE68A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		86E7AB602DB87F2B1C3DC455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		910F2F2F061B844B113537C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,14 +448,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-daag/Pods-daag-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F14184E960948CBDD8934126 /* Copy Pods Resources */ = {
+		A0923FF71038C41521345381 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-daagTests/Pods-daagTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B14FA06CD8047CC43546E863 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-daagTests/Pods-daagTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F14184E960948CBDD8934126 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,12 +633,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = daag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -538,50 +654,57 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = daag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		DB7D52F01B88BD5F001816C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3377DB9760523614C63B3846 /* Pods-daagTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = daagTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/daag.app/daag";
 			};
 			name = Debug;
 		};
 		DB7D52F11B88BD5F001816C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64DAE99F2E43E1F5ECBDCAF6 /* Pods-daagTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = daagTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/daag.app/daag";
 			};
 			name = Release;
 		};
 		DB7D52F31B88BD5F001816C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 705A3A0757B7644AD6F5D05A /* Pods-daagUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = daagUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = daag;
 				USES_XCTRUNNER = YES;
 			};
@@ -589,12 +712,14 @@
 		};
 		DB7D52F41B88BD5F001816C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3553128002A9C375367A7012 /* Pods-daagUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = daagUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.myungkyo.daagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = daag;
 				USES_XCTRUNNER = YES;
 			};
