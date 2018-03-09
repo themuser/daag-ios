@@ -11,6 +11,8 @@ target 'daag' do
   pod 'SDWebImage', '~>3.8'
   pod 'Toaster', '~> 2.0'
   pod 'Timepiece'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 
   target 'daagTests' do

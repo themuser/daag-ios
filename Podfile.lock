@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.0.1)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.5)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -9,6 +12,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Crashlytics
+  - Fabric
   - SDWebImage (~> 3.8)
   - SwiftyJSON (= 3.0.0)
   - Timepiece
@@ -16,11 +21,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
   Timepiece: 63b761b41d392f7a5b97e454376167d03bdcc6c2
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
 
-PODFILE CHECKSUM: e52c487be43a28bb60d218b15b3b587a4c39f40c
+PODFILE CHECKSUM: 0f1e9b322d421e89adb5a10058ab4a0ddc0ba6e8
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0

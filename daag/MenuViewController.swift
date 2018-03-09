@@ -12,6 +12,8 @@ import Alamofire
 import HealthKit
 import Toaster
 import Timepiece
+import Crashlytics
+
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -28,6 +30,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let button = UIButton(type: .roundedRect)
+        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+        button.setTitle("Crash", for: [])
+        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+        view.addSubview(button)
+
         emptyView = Bundle.main.loadNibNamed("EmptyMenu", owner: self, options: nil)?[0] as? UIView
         
         menuTableView.reloadData()
@@ -35,6 +43,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.shakeDetected), name: NSNotification.Name(rawValue: "shake"), object: nil)
     }
+    
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
+    }
+
     
     override var canBecomeFirstResponder : Bool {
         return true

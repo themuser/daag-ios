@@ -8,6 +8,8 @@
 
 import UIKit
 import HealthKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+    
+        Fabric.with([Crashlytics.self])
+
         // healthkit integration
-        let healthKitStore = HKHealthStore()
+        _ = HKHealthStore()
         
 //        let healthKitTypesToRead = NSSet(array: [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)]) as Set<NSObject>
 //        let healthKitTypesToWrite = NSSet(array: [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)])  as Set<NSObject>
